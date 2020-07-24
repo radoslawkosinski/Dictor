@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Dictor.UI": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "Environment": "DEV"
+      }
+    }
+  }
+}

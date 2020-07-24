@@ -1,0 +1,4 @@
+﻿//reactiveui docs:
+https://pasoft-sharereactiveui.readthedocs.io/en/stable/basics/reactive-command/
+
+

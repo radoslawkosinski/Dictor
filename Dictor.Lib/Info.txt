@@ -1,0 +1,70 @@
+﻿DictionaryAPI response
+
+[
+    {
+        "word": "slanted",
+        "phonetic": "/ˈslan(t)əd/",
+        "meaning": {
+            "adjective": [
+                {
+                    "definition": "Sloping or leaning in a particular direction.",
+                    "synonyms": [
+                        "at a slant",
+                        "on the slant",
+                        "at an angle",
+                        "not straight",
+                        "slanting",
+                        "slanted",
+                        "slantwise",
+                        "slant",
+                        "oblique",
+                        "leaning",
+                        "inclining",
+                        "inclined",
+                        "angled",
+                        "cambered",
+                        "canted"
+                    ]
+                },
+                {
+                    "definition": "(of information) presented or viewed from a particular angle, especially in a biased or unfair way.",
+                    "example": "the newspaper's slanted coverage could be seen in its use of emotive language",
+                    "synonyms": [
+                        "misrepresented",
+                        "perverted",
+                        "twisted",
+                        "falsified",
+                        "misreported",
+                        "misstated"
+                    ]
+                }
+            ]
+        }
+    }
+]
+
+
+
+
+{[
+  {
+    "word": "apple",
+    "phonetic": "/ˈapəl/",
+    "origin": "Old English æppel, of Germanic origin; related to Dutch appel and German Apfel.",
+    "meaning": {
+      "noun": [
+        {
+          "definition": "The round fruit of a tree of the rose family, which typically has thin red or green skin and crisp flesh. Many varieties have been developed as dessert or cooking fruit or for making cider.",
+          "example": "It could be something specific, Victoria plum skins or green apples."
+        },
+        {
+          "example": "The whole house is covered in Virginia creeper and among the trees are an apple tree, cedar, Japanese cedar and large cypress."
+        },
+        {
+          "definition": "short for Big Apple",
+          "example": "Five Points, where the action takes place, looks alien to anything currently considered Big in the Apple."
+        }
+      ]
+    }
+  }
+]}

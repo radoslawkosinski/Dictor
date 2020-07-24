@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Dictor.Experiments": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "Key": "Value",
+        "Environment": "DEV"
+      }
+    }
+  }
+}

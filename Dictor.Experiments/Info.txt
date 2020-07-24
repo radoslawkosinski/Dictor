@@ -1,0 +1,64 @@
+﻿info about async/await/configureawait/result() itp
+
+przerobic:
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/walkthrough-accessing-the-web-by-using-async-and-await
+
+YvzGfHh2KKgffkM kosinskir kosa999
+
+
+rkapitest.p.rapidapi.com
+
+
+DictionaryAPI response:
+https://api.dictionaryapi.dev/api/v1/entries/en/yesterday
+
+
+
+var unirest = require("unirest");
+
+var req = unirest("", "https://rkapitest.p.rapidapi.com/");
+
+req.headers({
+	"x-rapidapi-host": "rkapitest.p.rapidapi.com",
+	"x-rapidapi-key": "e7846033camsh6808c7dc025ef43p1db783jsn773b2bd4d616",
+	"content-type": "application/x-www-form-urlencoded",
+	"useQueryString": true
+});
+
+req.form({});
+
+req.end(function (res) {
+	if (res.error) throw new Error(res.error);
+
+	console.log(res.body);
+});
+
+
+
+M-W
+kosinskir
+pjcjigj3VqyGa8U
+
+
+
+
+transltr.org
+https://glosbe.com/a-api
+
+
+
+Key (Learner's):
+
+https://www.dictionaryapi.com/api/v3/references/learners/json/apple?key=your-api-key
+
+4d00665c-951a-47e1-a2b7-fefbd95daf6a
+
+Key (Spanish):
+
+099a3370-2741-451f-865c-d58a10d4a827
+
+
+learninr
+
+https://www.dictionaryapi.com/api/v3/references/collegiate/json/voluminous?key=your-api-key
+
