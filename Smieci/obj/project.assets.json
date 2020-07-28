@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\prj\\SLOWNIK\\Dictor\\Smieci\\Smieci.csproj",
-      "projectName": "Smieci",
-      "projectPath": "D:\\prj\\SLOWNIK\\Dictor\\Smieci\\Smieci.csproj",
+      "projectUniqueName": "D:\\prj\\SLOWNIK\\Dictor\\Smieci\\TempStuff.csproj",
+      "projectName": "TempStuff",
+      "projectPath": "D:\\prj\\SLOWNIK\\Dictor\\Smieci\\TempStuff.csproj",
       "packagesPath": "C:\\Users\\kosedzky\\.nuget\\packages\\",
       "outputPath": "D:\\prj\\SLOWNIK\\Dictor\\Smieci\\obj\\",
       "projectStyle": "PackageReference",

@@ -97,22 +97,36 @@ namespace Dictor.Lib.Provider
         {
             TranslationResult translationResult = new TranslationResult(this.ProviderName);
 
-            /**
-            translationResult.Word = translationResultRaw[0].hwi.hw; //test only
-            translationResult.ProviderName = this.ProviderName;
-            //translationResult.ShortTranslation = translationResultRaw.Select
 
-            //    translationResultRaw[0].shortdef[0];
-            translationResult.ShortTranslation = translationResultRaw
-               .SelectMany(x => x.ShortTranslation)
-                //.Where(x => !string.IsNullOrEmpty(x) || !string.IsNullOrEmpty(x.Example))
+            translationResult.Results = translationResultRaw
+            .Select(x => new Result()
+            {
+                Word = null, //to be removed
+                ShortTranslation = null, //to be removed
+
+
+                Definitions =
+                            { new TranslationDefinition {
+                                Definition = x.hwi.Word,
+                                Example = x.ShortTranslation.FirstOrDefault(),
+                                Pronounciations =
+                                    { new Pronounciation { Sound = x.hwi.prs
+                                         .Where
+                                         (x => !string.IsNullOrEmpty(x.sound.Audio))
+                                         .FirstOrDefault()?.sound ?? x.hwi.prs.FirstOrDefault().sound //this was prepopulated in constructor so either first not empty element or just first one (it could be either populated or not)
+                                         ,Pron = x.hwi.prs
+                                         .Where (x => !string.IsNullOrEmpty(x.ipa)).FirstOrDefault()?.ipa
+                                    } }
+
+                         }
+                    }
+            })
                 .ToList();
-            **/
+
+
+
 
             return translationResult;
-
-            //use linq to map
-            //translationResultRaw[0].def[0].sseq.Rank; //etc
         }
 
         /// <summary>

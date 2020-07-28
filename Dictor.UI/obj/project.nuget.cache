@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "2UYDUjqahvZJFAJMNH6avbIcGvVhcyPM2loXQ9reoSL6cIq4ynmxNIdXskUw3tPZJtC0Eyu2bJl2ejY1UbQgEQ==",
+  "dgSpecHash": "/thLXBYkNpDNOMNiI8GxW0b36IIydjweJpbm9H8CoNlOQ+8iEqf6InGD3IYMZ0aLlXzULqYpgVU/jYMxJDDxqQ==",
   "success": true,
   "projectFilePath": "D:\\prj\\SLOWNIK\\Dictor\\Dictor.UI\\Dictor.UI.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\kosedzky\\.nuget\\packages\\dragablz\\0.0.3.203\\dragablz.0.0.3.203.nupkg.sha512",
     "C:\\Users\\kosedzky\\.nuget\\packages\\dynamicdata\\6.15.1\\dynamicdata.6.15.1.nupkg.sha512",
     "C:\\Users\\kosedzky\\.nuget\\packages\\materialdesigncolors\\1.2.6\\materialdesigncolors.1.2.6.nupkg.sha512",
     "C:\\Users\\kosedzky\\.nuget\\packages\\materialdesignextensions\\3.2.0\\materialdesignextensions.3.2.0.nupkg.sha512",
@@ -56,16 +55,5 @@
     "C:\\Users\\kosedzky\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
     "C:\\Users\\kosedzky\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Dragablz 0.0.3.203' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "Dragablz",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  "logs": []
 }

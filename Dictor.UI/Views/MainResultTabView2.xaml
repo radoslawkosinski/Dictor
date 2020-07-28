@@ -15,40 +15,41 @@
     <TabControl Style="{StaticResource MaterialDesignTabControl}" 
         ItemsSource="{Binding Translations}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                 SelectedItem="{Binding SelectedProvider, Mode=TwoWay}">
-            <TabControl.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock
+        <TabControl.ItemTemplate>
+            <DataTemplate>
+                <TextBlock
                     Text="{Binding ProviderName}" />
-                </DataTemplate>
-            </TabControl.ItemTemplate>
-            <TabControl.ContentTemplate>
-                <DataTemplate>
-                    
-                    
+            </DataTemplate>
+        </TabControl.ItemTemplate>
+        <TabControl.ContentTemplate>
+            <DataTemplate>
+
+
                 <Grid  TextElement.Foreground="{DynamicResource MaterialDesignBody}">
 
 
                     <TabControl TabStripPlacement="Left"  Style="{StaticResource MaterialDesignTabControl}">
                         <TabItem Header="Online examples" >
-                            
-                            <Grid HorizontalAlignment="Stretch">
+
+                            <Grid HorizontalAlignment="Left">
                                 <UC:EmptyResultView Visibility="{Binding Path=.,  
                                                                       Converter={C1:ResultEmptyOnlineExampleListToVisibilityConverter}}" Panel.ZIndex="1">
                                 </UC:EmptyResultView>
                                 <DockPanel Grid.Column="0" Grid.Row="0" 
                                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                    <ListView ItemsSource="{Binding Results}" HorizontalAlignment="Stretch">
+                                    <ListView ItemsSource="{Binding Results}"  Width="900"
+                                              >
                                         <ListView.View>
-                                            
+
                                             <GridView>
                                                 <GridViewColumn >
-                                                    <GridViewColumn.CellTemplate >
+                                                    <GridViewColumn.CellTemplate>
                                                         <DataTemplate>
                                                             <!--enable scrollbar on list view(Height="600")-->
                                                             <DockPanel HorizontalAlignment="Stretch" Grid.Column="0" Height="630" VerticalAlignment="Top">
                                                                 <ListView ItemsSource="{Binding OnlineExamples}"  
                                                                   ScrollViewer.VerticalScrollBarVisibility="Visible" 
-                                                                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                                                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
 
                                                                     <ListView.ItemTemplate>
                                                                         <DataTemplate>
@@ -98,11 +99,11 @@
 
                                 </DockPanel>
                             </Grid>
-                            
+
 
                         </TabItem>
                         <TabItem Header="Definitions">
-                            
+
                             <Grid HorizontalAlignment="Stretch">
                                 <UC:EmptyResultView Grid.Column="1" Visibility="{Binding Path=.,  
                                                                       Converter={C1:ResultEmptyDefinitionListToVisibilityConverter}}" Panel.ZIndex="1">
@@ -110,7 +111,7 @@
                                 <DockPanel Grid.Column="0" Grid.Row="0" 
                                 HorizontalAlignment="Stretch" >
                                     <!--short translations-->
-                                    <ListView ItemsSource="{Binding Results}" HorizontalAlignment="Left"  Height="630" VerticalAlignment="Top"> 
+                                    <ListView ItemsSource="{Binding Results}" HorizontalAlignment="Left"  Height="630" Width="900" VerticalAlignment="Top">
                                         <ListView.View>
                                             <GridView>
                                                 <GridViewColumn>
@@ -120,27 +121,24 @@
                                                             <DockPanel  HorizontalAlignment="Stretch" >
                                                                 <materialDesign:Card  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                                                                                  materialDesign:ShadowAssist.ShadowDepth="Depth3"                                                                                 
-                                                                                 Width="700" Height="200">
+                                                                                 Width="800" Height="200">
                                                                     <StackPanel HorizontalAlignment="Stretch">
 
-
-
-
-                                                                            <DockPanel Grid.Column="1" Grid.Row="1">
-                                                                            <ListBox ItemsSource="{Binding Definitions}" VerticalAlignment="Stretch" x:Name="lst">
+                                                                        <DockPanel Grid.Column="1" Grid.Row="1">
+                                                                            <ListBox ItemsSource="{Binding Definitions}" x:Name="lst">
                                                                                 <ListBox.ItemTemplate>
                                                                                     <DataTemplate>
                                                                                         <StackPanel>
-                                                                                                <Grid  VerticalAlignment="Bottom"
-                                                                                                       > 
-                                                                                                    <Grid.ColumnDefinitions>
-                                                                                                        <ColumnDefinition Width="120"></ColumnDefinition>
-                                                                                                        <ColumnDefinition Width="500"></ColumnDefinition>
-                                                                                                    </Grid.ColumnDefinitions>
-                                                                                                    <Grid.RowDefinitions>
-                                                                                                        <RowDefinition Height="42"></RowDefinition>
-                                                                                                        <RowDefinition Height="42"></RowDefinition>
-                                                                                                        <RowDefinition Height="100"></RowDefinition>
+                                                                                            <Grid  VerticalAlignment="Bottom"
+                                                                                                       >
+                                                                                                <Grid.ColumnDefinitions>
+                                                                                                    <ColumnDefinition Width="120"></ColumnDefinition>
+                                                                                                    <ColumnDefinition Width="700"></ColumnDefinition>
+                                                                                                </Grid.ColumnDefinitions>
+                                                                                                <Grid.RowDefinitions>
+                                                                                                    <RowDefinition Height="42"></RowDefinition>
+                                                                                                    <RowDefinition Height="42"></RowDefinition>
+                                                                                                    <RowDefinition Height="65"></RowDefinition>
                                                                                                     <RowDefinition Height="42"></RowDefinition>
                                                                                                 </Grid.RowDefinitions>
                                                                                                 <TextBlock Text="Definition" Grid.Column="0" Grid.Row="0" FontWeight="Bold"/>
@@ -149,9 +147,9 @@
 
                                                                                                 <TextBlock Text="{Binding Definition}" TextWrapping="Wrap" Grid.Column="1" Grid.Row="0"/>
                                                                                                 <TextBlock Text="{Binding Example}" TextWrapping="Wrap" Grid.Column="1" Grid.Row="1"/>
-                                                                                                
 
-                                                                                                
+
+
 
                                                                                                 <DockPanel Grid.Column="1" Grid.Row="2">
                                                                                                     <ListBox ItemsSource="{Binding Pronounciations}"  VerticalAlignment="Stretch">
@@ -159,7 +157,7 @@
                                                                                                             <DataTemplate>
                                                                                                                 <Grid>
                                                                                                                     <Grid.ColumnDefinitions>
-                                                                                                                        <ColumnDefinition Width="400"></ColumnDefinition>
+                                                                                                                        <ColumnDefinition Width="500"></ColumnDefinition>
                                                                                                                         <ColumnDefinition Width="60"></ColumnDefinition>
                                                                                                                     </Grid.ColumnDefinitions>
 
@@ -179,12 +177,12 @@
                                                                                                     </ListBox>
                                                                                                 </DockPanel>
                                                                                             </Grid>
-                                                                                            </StackPanel>
-                                                                                            
+                                                                                        </StackPanel>
+
                                                                                     </DataTemplate>
                                                                                 </ListBox.ItemTemplate>
                                                                             </ListBox>
-                                                                            </DockPanel>
+                                                                        </DockPanel>
                                                                     </StackPanel>
                                                                 </materialDesign:Card>
                                                             </DockPanel>
@@ -202,10 +200,10 @@
                 </Grid>
 
 
-                </DataTemplate>
-                
-                
-                
-            </TabControl.ContentTemplate>
-        </TabControl>
+            </DataTemplate>
+
+
+
+        </TabControl.ContentTemplate>
+    </TabControl>
 </UserControl>

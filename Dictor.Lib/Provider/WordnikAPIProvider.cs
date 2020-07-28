@@ -91,7 +91,7 @@ namespace Dictor.Lib.Provider
             }
             catch (WebException ex)
             {
-                //TODO
+                //TODO --ADD LOGGING
                 Console.WriteLine(ex.Message);
             }
 
@@ -107,28 +107,44 @@ namespace Dictor.Lib.Provider
         {
             TranslationResult translationResult = new TranslationResult(this.ProviderName);
 
-            translationResult.Results[0].OnlineExamples = translationResultRaw.Examples
-            .Select(x => new OnlineExample() {  Author = x.Author,  Text = x.Text, Title = x.Title, Url = x.Url, Word = x.Word, Year = x.Year })
-            .Where(x => !string.IsNullOrEmpty(x.Title) || !string.IsNullOrEmpty(x.Text))
-            .ToList();
+            translationResult.Results.Add(new Result());
 
+
+
+            //always single result (this is only the list<OnlineExample>
+            translationResult.Results[0].OnlineExamples = translationResultRaw
+                .Examples.Select(
+                x => new OnlineExample()
+                {
+                    Author = x?.Author,
+                    Text = x?.Text,
+                    Title = x?.Title,
+                    Url = x?.Url,
+                    Word = x?.Word,
+                    Year = x?.Year
+                }
+                )
+                .Where(x => !string.IsNullOrEmpty(x.Title) || !string.IsNullOrEmpty(x.Text))?
+                .ToList();
             return translationResult;
         }
+
+        public Task ListenAudio(string phrase)
+        {
+            throw new NotImplementedException();
+        }
+
 
         /// <summary>
         /// Load list of languages available for translation on this provider
         /// </summary>
         private void LoadSupportedLanguages()
         {
-            AvailableLanguages = new List<Language> { 
-               //Languages.Eng,
-               //Languages.Pl
+            AvailableLanguages = new List<Language>
+            {
+                //Languages.Eng,
+                //Languages.Pl
             };
-        }
-
-        public Task ListenAudio(string phrase)
-        {
-            throw new NotImplementedException();
         }
     }
 }

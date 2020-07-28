@@ -103,29 +103,46 @@ namespace Dictor.Lib.Provider
         /// <returns></returns>
         private TranslationResult mapResponse()
         {
-
             TranslationResult translationResult = new TranslationResult(this.ProviderName);
-            var definitionsFromNoun = translationResultRaw[0].Meaning.Noun
-                .Select(x => new TranslationDefinition() { Definition = x.Definition, Example = x.Example })
-                .Where(x => !string.IsNullOrEmpty(x.Example) || !string.IsNullOrEmpty(x.Definition))
-                .ToList();
 
-            var definitionsFromAdjective = translationResultRaw[0].Meaning.Adjective
-                .Select(x => new TranslationDefinition() {  Definition = x.Definition, Example = x.Example})
-                .Where(x => !string.IsNullOrEmpty(x.Definition) || !string.IsNullOrEmpty(x.Example))
-                .ToList();
+            var adj = translationResultRaw.Select(x => x.Meaning.Adjective).FirstOrDefault()?.ToList();
+            var noun = translationResultRaw.Select(x => x.Meaning.Noun).FirstOrDefault()?.ToList();
 
+            var res = new List<Result>();
 
-       /*     
-            translationResult.Word = translationResultRaw[0].Word;
-            translationResult.ProviderName = this.ProviderName;
-            translationResult.ShortTranslation.Add(translationResultRaw.First().ShortTranslation);
-                //[0].Origin;
+            if (adj != null)
+            {
+                res = adj
+                    .Select(x => new Result()
+                    {
+                        Definitions = {
+                     new TranslationDefinition{
+                     Definition = x.Definition,
+                      Pronounciations = null,
+                      Synonyms =  x.Synonyms.Select(item => new Synonym() { Name = item })?.ToList(), //convert list<string> to list of new objects!!!!
+                     Example = x.Example
+                     }
+                    }
+                    })?.ToList();
+            }
 
+            if (noun != null)
+            {
+                res = noun
+                    .Select(x => new Result()
+                    {
+                        Definitions = {
+                     new TranslationDefinition{
+                     Definition = x.Definition,
+                      Pronounciations = null,
+                      Synonyms =  x.Synonyms?.Select(item => new Synonym() { Name = item })?.ToList(), //convert list<string> to list of new objects!!!!
+                      Example = x.Example
+                     }
+                        }
+                    })?.ToList();
+            }
 
-            translationResult.Definitions = definitionsFromNoun;
-            translationResult.Definitions.AddRange(definitionsFromAdjective);
- */
+            translationResult.Results = res;
 
             return translationResult;
         }

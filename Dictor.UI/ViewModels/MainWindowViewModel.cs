@@ -97,24 +97,26 @@ namespace Dictor.UI.ViewModels
 
         private async Task TranslateAllProviders()
         {
+            Translations.Clear();
+
             var lst = await translationService.TranslateAllProviders(this._phrase);
             var translatedList = new ObservableCollection<TranslationResult>(lst);
           //  MessageBox.Show("zzz");
 
             if (Translations.Count == 0)
                 Translations.AddRange(translatedList);
-            else {
-                foreach (var translated in translatedList)
-                {
-                    var existingTranslation = Translations
-                        .Where(x => x.ProviderName ==  translated.ProviderName).FirstOrDefault();
+            //else {
+            //    foreach (var translated in translatedList)
+            //    {
+            //        var existingTranslation = Translations
+            //            .Where(x => x.ProviderName ==  translated.ProviderName).FirstOrDefault();
 
-                    if (existingTranslation == null)
-                        Translations.Add(translated);
-                    else
-                        existingTranslation = translated;
-                }
-            }
+            //        if (existingTranslation == null)
+            //            Translations.Add(translated);
+            //        else
+            //            existingTranslation = translated;
+            //    }
+            //}
         }
 
         private async Task PlaySound(string soundUrl)

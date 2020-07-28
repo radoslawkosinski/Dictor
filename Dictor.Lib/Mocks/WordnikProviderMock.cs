@@ -32,24 +32,11 @@ namespace Dictor.Lib.Mocks
         public async Task<TranslationResult> Translate(string phrase)
         {
 
-
-            //Task<IRestResponse> t = client.ExecuteAsync(request);
-            //using (StreamReader sr = File.OpenText(jsonFilePath))
-
             var jt = JToken.Parse(response.GetWordnikAPIMockResponse()).ToString();
-            //StreamReader sr = File.OpenText(jsonFilePath);
-            //{
-            //        string json = await sr.ReadToEndAsync();
-            //            var bla = JToken.Parse(response.GetWordnikAPIMockResponse().ToString();
-            //            var content = JsonConvert.DeserializeObject<JToken>(bla)
-            //;
+
             translationResultRaw = JsonConvert.DeserializeObject<JToken>(JToken.Parse(response.GetWordnikAPIMockResponse()).ToString())
-                    
-                
-                //translationResultRaw = content.Select(x => x.)
-                .ToObject<WordnikAPIResponseRaw>();
-            //}
-            //WordnikAPIResponseRaw
+            .ToObject<WordnikAPIResponseRaw>();
+
 
             //CONVERT TO FINAL RESPONSE
             return mapResponse();
@@ -80,31 +67,7 @@ namespace Dictor.Lib.Mocks
                 }
                 )
                 .Where(x => !string.IsNullOrEmpty(x.Title) || !string.IsNullOrEmpty(x.Text))?
-                .ToList();               
-                
-
-
-            /*
-            translationResult.Results = translationResultRaw
-                .Examples.Select(x => new Result
-                {
-                    Definitions = null,
-                    OnlineExamples = translationResultRaw.Examples
-                .Select(x => new OnlineExample() { Author = x.Author, Text = x.Text, Title = x.Title, Url = x.Url, Word = x.Word, Year = x.Year })
-                .Where(x => !string.IsNullOrEmpty(x.Title) || !string.IsNullOrEmpty(x.Text))
-                .ToList()
-
-                }).ToList();
-                */
-
-
-
-            //translationResult.Results[0].OnlineExamples = translationResultRaw.Examples
-            //.Select(x => new OnlineExample() { Author = x.Author, Text = x.Text, Title = x.Title, Url = x.Url, Word = x.Word, Year = x.Year })
-            //.Where(x => !string.IsNullOrEmpty(x.Title) || !string.IsNullOrEmpty(x.Text))
-            //.ToList();
-
-
+                .ToList();        
             return translationResult;
         }
 

@@ -15,7 +15,7 @@ namespace Smieci
             await spr();
             //try
             //{
-            //    var httpClient = new HttpClient();
+            //    var httpClient = new HttpClient();zz
 
             //    var response = await httpClient.GetAsync(req);
             //    if (response.StatusCode != HttpStatusCode.OK)

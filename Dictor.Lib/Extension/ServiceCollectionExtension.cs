@@ -16,18 +16,10 @@ namespace Dictor.Lib
         {
 
             //providers
-            //collection.AddTransient<IMWProvider, MeriamWebsterExperimentalProvider>();
-            //collection.AddTransient<IDictionaryAPIProvider, DictionaryAPIProvider>();
-            //collection.AddTransient<IWordnikAPIProvider, WordnikAPIProvider>();
+           //AddProviderMocks();
 
+           AddProviders();
 
-
-            //mocked providers
-            collection.AddTransient<IMWProvider, MWProviderMock>();
-
-            collection.AddTransient<IDictionaryAPIProvider, DictionaryAPIProviderMock>();
-
-            collection.AddTransient<IWordnikAPIProvider, WordnikProviderMock>();
 
 
             //responses:
@@ -43,6 +35,23 @@ namespace Dictor.Lib
             collection.AddSingleton<TranslationProviders, TranslationProviders>();
 
             return collection;
+
+
+            void AddProviderMocks()
+            {
+                collection.AddTransient<IMWProvider, MWProviderMock>();
+                collection.AddTransient<IDictionaryAPIProvider, DictionaryAPIProviderMock>();
+                collection.AddTransient<IWordnikAPIProvider, WordnikProviderMock>();
+            }
+
+            void AddProviders()
+            {
+                collection.AddTransient<IMWProvider, MWProvider>();
+                collection.AddTransient<IDictionaryAPIProvider, DictionaryAPIProvider>();
+                collection.AddTransient<IWordnikAPIProvider, WordnikAPIProvider>();
+            }
         }
+
+
     }
 }

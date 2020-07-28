@@ -34,11 +34,12 @@ namespace Dictor.UI.Converter
 
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
+            var NonNullItem = 0;
+            var res = (TranslationResult)value;
 
-            TranslationResult res = (TranslationResult)value;
 
-
-            var NonNullItem = res.Results.Where(x => x.OnlineExamples.Count() > 0).Count();
+            if (res != null)
+            NonNullItem = res.Results.Where(x => x.OnlineExamples.Count() > 0).Count();
 
 
             return NonNullItem > 0 ? EmptyVisibility : NotEmptyVisibility;

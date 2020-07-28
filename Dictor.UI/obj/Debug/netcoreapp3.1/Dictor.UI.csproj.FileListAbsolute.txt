@@ -69,7 +69,6 @@ D:\prj\SLOWNIK\Dictor\Dictor.UI\bin\Debug\netcoreapp3.1\Dictor.UI.runtimeconfig.
 D:\prj\SLOWNIK\Dictor\Dictor.UI\bin\Debug\netcoreapp3.1\Dictor.UI.runtimeconfig.dev.json
 D:\prj\SLOWNIK\Dictor\Dictor.UI\bin\Debug\netcoreapp3.1\Dictor.UI.dll
 D:\prj\SLOWNIK\Dictor\Dictor.UI\bin\Debug\netcoreapp3.1\Dictor.UI.pdb
-D:\prj\SLOWNIK\Dictor\Dictor.UI\bin\Debug\netcoreapp3.1\Dragablz.dll
 D:\prj\SLOWNIK\Dictor\Dictor.UI\bin\Debug\netcoreapp3.1\DynamicData.dll
 D:\prj\SLOWNIK\Dictor\Dictor.UI\bin\Debug\netcoreapp3.1\MaterialDesignColors.dll
 D:\prj\SLOWNIK\Dictor\Dictor.UI\bin\Debug\netcoreapp3.1\MaterialDesignExtensions.dll
