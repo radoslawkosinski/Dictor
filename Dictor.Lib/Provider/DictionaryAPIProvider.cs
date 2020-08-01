@@ -67,8 +67,7 @@ namespace Dictor.Lib.Provider
             request.Method = Method.GET;
 
 
-            try
-            {
+
                 var response = await client.ExecuteAsync(request);
 
                 Task<IRestResponse> t = client.ExecuteAsync(request);
@@ -83,12 +82,7 @@ namespace Dictor.Lib.Provider
 
                 }
  
-            }
-            catch (WebException ex)
-            {
-                //TODO
-                Console.WriteLine(ex.Message);
-            }
+
 
 
             //CONVERT TO FINAL RESPONSE
@@ -105,8 +99,8 @@ namespace Dictor.Lib.Provider
         {
             TranslationResult translationResult = new TranslationResult(this.ProviderName);
 
-            var adj = translationResultRaw.Select(x => x.Meaning.Adjective).FirstOrDefault()?.ToList();
-            var noun = translationResultRaw.Select(x => x.Meaning.Noun).FirstOrDefault()?.ToList();
+            var adj = translationResultRaw?.Select(x => x.Meaning.Adjective).FirstOrDefault()?.ToList();
+            var noun = translationResultRaw?.Select(x => x.Meaning.Noun).FirstOrDefault()?.ToList();
 
             var res = new List<Result>();
 
@@ -119,7 +113,7 @@ namespace Dictor.Lib.Provider
                      new TranslationDefinition{
                      Definition = x.Definition,
                       Pronounciations = null,
-                      Synonyms =  x.Synonyms.Select(item => new Synonym() { Name = item })?.ToList(), //convert list<string> to list of new objects!!!!
+                      Synonyms =  x.Synonyms?.Select(item => new Synonym() { Name = item })?.ToList(), //convert list<string> to list of new objects!!!!
                      Example = x.Example
                      }
                     }

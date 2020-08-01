@@ -76,7 +76,6 @@ D:\prj\SLOWNIK\Dictor\Dictor.Experiments\bin\Debug\netcoreapp3.1\System.ServiceM
 D:\prj\SLOWNIK\Dictor\Dictor.Experiments\bin\Debug\netcoreapp3.1\System.ServiceModel.dll
 D:\prj\SLOWNIK\Dictor\Dictor.Experiments\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netstandard2.0\System.Private.ServiceModel.dll
 D:\prj\SLOWNIK\Dictor\Dictor.Experiments\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Private.ServiceModel.dll
-D:\prj\SLOWNIK\Dictor\Dictor.Experiments\obj\Debug\netcoreapp3.1\Dictor.Experiments.csprojAssemblyReference.cache
 D:\prj\SLOWNIK\Dictor\Dictor.Experiments\obj\Debug\netcoreapp3.1\Dictor.Experiments.csproj.CoreCompileInputs.cache
 D:\prj\SLOWNIK\Dictor\Dictor.Experiments\obj\Debug\netcoreapp3.1\Dictor.Experiments.AssemblyInfoInputs.cache
 D:\prj\SLOWNIK\Dictor\Dictor.Experiments\obj\Debug\netcoreapp3.1\Dictor.Experiments.AssemblyInfo.cs

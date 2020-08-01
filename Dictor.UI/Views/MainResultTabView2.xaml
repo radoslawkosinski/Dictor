@@ -26,9 +26,7 @@
 
 
                 <Grid  TextElement.Foreground="{DynamicResource MaterialDesignBody}">
-
-
-                    <TabControl TabStripPlacement="Left"  Style="{StaticResource MaterialDesignTabControl}">
+                    <TabControl TabStripPlacement="Left"  Style="{StaticResource MaterialDesignTabControl}" >
                         <TabItem Header="Online examples" >
 
                             <Grid HorizontalAlignment="Left">
@@ -37,7 +35,7 @@
                                 </UC:EmptyResultView>
                                 <DockPanel Grid.Column="0" Grid.Row="0" 
                                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                    <ListView ItemsSource="{Binding Results}"  Width="900"
+                                    <ListView ItemsSource="{Binding Results}"  VerticalAlignment="Stretch"
                                               >
                                         <ListView.View>
 
@@ -45,8 +43,7 @@
                                                 <GridViewColumn >
                                                     <GridViewColumn.CellTemplate>
                                                         <DataTemplate>
-                                                            <!--enable scrollbar on list view(Height="600")-->
-                                                            <DockPanel HorizontalAlignment="Stretch" Grid.Column="0" Height="630" VerticalAlignment="Top">
+                                                            <DockPanel Name="pnlOnlineExamples" HorizontalAlignment="Stretch" Grid.Column="0" Height="630" VerticalAlignment="Stretch">
                                                                 <ListView ItemsSource="{Binding OnlineExamples}"  
                                                                   ScrollViewer.VerticalScrollBarVisibility="Visible" 
                                                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
@@ -54,8 +51,8 @@
                                                                     <ListView.ItemTemplate>
                                                                         <DataTemplate>
                                                                             <materialDesign:Card VerticalAlignment="Stretch" HorizontalAlignment="Left" 
-                                                                                 materialDesign:ShadowAssist.ShadowDepth="Depth3"  Width="700"                                                                               
-                                                                                  Height="200">
+                                                                                 materialDesign:ShadowAssist.ShadowDepth="Depth3"                                                                             
+                                                                                  Height="200" Width="810">
 
                                                                                 <DockPanel>
 
@@ -87,7 +84,6 @@
                                                                     </ListView.ItemTemplate>
                                                                 </ListView>
                                                             </DockPanel>
-                                                            <!--</DockPanel>-->
                                                         </DataTemplate>
                                                     </GridViewColumn.CellTemplate>
                                                 </GridViewColumn>

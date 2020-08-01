@@ -64,8 +64,7 @@ namespace Dictor.Lib.Provider
 
 
 
-            try
-            {
+
                 var response = await client.ExecuteAsync(request);
 
                 Task<IRestResponse> t = client.ExecuteAsync(request);
@@ -75,15 +74,12 @@ namespace Dictor.Lib.Provider
 
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    translationResultRaw = content.ToObject<List<MWTranslationRaw>>();
+                    translationResultRaw = (content.ToString().Contains("uuid")) ? content.ToObject<List<MWTranslationRaw>>() : null;
+
                 }
  
-            }
-            catch (WebException ex)
-            {
-                //TODO
-                Console.WriteLine(ex.Message);
-            }
+            
+
 
 
             //CONVERT TO FINAL RESPONSE
@@ -95,34 +91,37 @@ namespace Dictor.Lib.Provider
 
         private TranslationResult mapResponse()
         {
+            
             TranslationResult translationResult = new TranslationResult(this.ProviderName);
 
-
-            translationResult.Results = translationResultRaw
-            .Select(x => new Result()
+            if (translationResultRaw != null)
             {
-                Word = null, //to be removed
-                ShortTranslation = null, //to be removed
+                translationResult.Results = translationResultRaw?
+                .Select(x => new Result()
+                {
+                    Word = null, //to be removed
+                    ShortTranslation = null, //to be removed
 
 
-                Definitions =
-                            { new TranslationDefinition {
+                    Definitions =
+                                { new TranslationDefinition {
                                 Definition = x.hwi.Word,
                                 Example = x.ShortTranslation.FirstOrDefault(),
                                 Pronounciations =
                                     { new Pronounciation { Sound = x.hwi.prs
                                          .Where
-                                         (x => !string.IsNullOrEmpty(x.sound.Audio))
-                                         .FirstOrDefault()?.sound ?? x.hwi.prs.FirstOrDefault().sound //this was prepopulated in constructor so either first not empty element or just first one (it could be either populated or not)
+                                         (x => !string.IsNullOrEmpty(x.sound?.Audio))
+                                         .FirstOrDefault()?.sound ?? x.hwi?.prs?.FirstOrDefault().sound //this was prepopulated in constructor so either first not empty element or just first one (it could be either populated or not)
                                          ,Pron = x.hwi.prs
                                          .Where (x => !string.IsNullOrEmpty(x.ipa)).FirstOrDefault()?.ipa
                                     } }
 
                          }
-                    }
-            })
-                .ToList();
-
+                        }
+                })
+                    .ToList();
+            }
+            else translationResult = translationResult.GetEmptyTranslationResult();
 
 
 
@@ -144,5 +143,13 @@ namespace Dictor.Lib.Provider
         {
             throw new NotImplementedException();
         }
+
+        //private List<MWTranslationRaw> CreateEmptyResponse()
+        //{
+        //    return new List<MWTranslationRaw> { new MWTranslationRaw { ShortTranslation= new List<string>(), def = new List<Def>(), dros = new List<Dro>(), fl = null, gram = null, hom = 0, hwi = new Hwi { altprs = new List<Altpr>(), prs = new List<Pr> { new Pr {  ipa="", sound=new Sound {  Audio=""} } }, Word = "" } } };
+        //}
+
+
+
     }
 }

@@ -30,6 +30,28 @@ namespace Dictor.Lib.Model
             Results = new List<Result>();
             ProviderName = providerName;
         }
+
+        public TranslationResult GetEmptyTranslationResult()
+        {
+
+            this.Results = new List<Result>()
+                {
+                   new Result { Definitions = new List<TranslationDefinition>() { new TranslationDefinition {
+                       Definition = null,
+                       Example = null,
+                       Pronounciations = new List<Pronounciation>() {
+                           new Pronounciation {
+                               Pron = null, Sound = null}
+                            },
+                               Synonyms = new List<Synonym>(){ new Synonym { Name = null }}
+                   }
+                   }
+                   }
+                };
+            return this;
+         }
+   
+
     }
 
     public class Result
@@ -67,8 +89,8 @@ namespace Dictor.Lib.Model
             public string Definition { get; set; }
             public string Example { get; set; }
             public List<Pronounciation> Pronounciations { get; set; }
-        public List<Synonym> Synonyms { get; set; }
-        public TranslationDefinition()
+            public List<Synonym> Synonyms { get; set; }
+            public TranslationDefinition()
             {
                 Pronounciations = new List<Pronounciation>();
                 Synonyms = new List<Synonym>();
@@ -91,4 +113,7 @@ namespace Dictor.Lib.Model
     {
         public string Name { get; set; }
     }
+
+
+
 }

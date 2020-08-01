@@ -72,28 +72,22 @@ namespace Dictor.Lib.Provider
 
             request.Method = Method.GET;
 
+            
 
 
-            try
-            {
-                var response = await client.ExecuteAsync(request);
+            var response = await client.ExecuteAsync(request);
 
                 Task<IRestResponse> t = client.ExecuteAsync(request);
 
 
                 var content = JsonConvert.DeserializeObject<JToken>(response.Content);
 
-                if (response.StatusCode == HttpStatusCode.OK)
-                {
-                    translationResultRaw = content.ToObject<WordnikAPIResponseRaw>();
-                }
+
+
+                translationResultRaw = response.StatusCode == HttpStatusCode.OK ? content.ToObject<WordnikAPIResponseRaw>() : null;                
+
  
-            }
-            catch (WebException ex)
-            {
-                //TODO --ADD LOGGING
-                Console.WriteLine(ex.Message);
-            }
+
 
 
             //CONVERT TO FINAL RESPONSE
@@ -111,21 +105,26 @@ namespace Dictor.Lib.Provider
 
 
 
-            //always single result (this is only the list<OnlineExample>
-            translationResult.Results[0].OnlineExamples = translationResultRaw
-                .Examples.Select(
-                x => new OnlineExample()
-                {
-                    Author = x?.Author,
-                    Text = x?.Text,
-                    Title = x?.Title,
-                    Url = x?.Url,
-                    Word = x?.Word,
-                    Year = x?.Year
-                }
-                )
-                .Where(x => !string.IsNullOrEmpty(x.Title) || !string.IsNullOrEmpty(x.Text))?
-                .ToList();
+            if (translationResultRaw != null)
+            {
+                translationResult.Results[0].OnlineExamples = translationResultRaw?
+                    .Examples.Select(
+                    x => new OnlineExample()
+                    {
+                        Author = x?.Author,
+                        Text = x?.Text,
+                        Title = x?.Title,
+                        Url = x?.Url,
+                        Word = x?.Word,
+                        Year = x?.Year
+                    }
+                    )
+                    .Where(x => !string.IsNullOrEmpty(x.Title) || !string.IsNullOrEmpty(x.Text))?
+                    .ToList();
+            }
+            else
+                translationResult = translationResult.GetEmptyTranslationResult();
+
             return translationResult;
         }
 
