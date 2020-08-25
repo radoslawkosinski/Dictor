@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "DynamicData/6.15.1": {
+      "DynamicData/6.16.2": {
         "type": "package",
         "dependencies": {
           "System.Reactive": "4.4.1"
@@ -455,32 +455,32 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "ReactiveUI/11.4.17": {
+      "ReactiveUI/11.5.17": {
         "type": "package",
         "dependencies": {
-          "DynamicData": "6.15.1",
-          "Splat": "9.4.5",
+          "DynamicData": "6.16.2",
+          "Splat": "9.5.20",
           "System.Reactive": "4.4.1",
           "System.Runtime.Serialization.Primitives": "4.3.0"
         },
         "compile": {
-          "lib/netcoreapp3.0/ReactiveUI.dll": {}
+          "lib/netcoreapp3.1/ReactiveUI.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.0/ReactiveUI.dll": {}
+          "lib/netcoreapp3.1/ReactiveUI.dll": {}
         }
       },
-      "ReactiveUI.WPF/11.4.17": {
+      "ReactiveUI.WPF/11.5.17": {
         "type": "package",
         "dependencies": {
-          "ReactiveUI": "11.4.17",
+          "ReactiveUI": "11.5.17",
           "System.Reactive": "4.4.1"
         },
         "compile": {
-          "lib/netcoreapp3.0/ReactiveUI.WPF.dll": {}
+          "lib/netcoreapp3.1/ReactiveUI.WPF.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.0/ReactiveUI.WPF.dll": {}
+          "lib/netcoreapp3.1/ReactiveUI.WPF.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WPF"
@@ -495,7 +495,7 @@
           "lib/netstandard2.0/RestSharp.dll": {}
         }
       },
-      "Splat/9.4.5": {
+      "Splat/9.5.20": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Splat.dll": {}
@@ -700,15 +700,15 @@
     }
   },
   "libraries": {
-    "DynamicData/6.15.1": {
-      "sha512": "ptLi6Ete7cxibPAuvfrG6tOH4nN6xKcn4KGlOwOUUp78V0WAHhrEVyAD1/TuPbpR55DQIEu1RjOucIb9Ibbwng==",
+    "DynamicData/6.16.2": {
+      "sha512": "Ipl3lvqzDp13suUpJbSUk8HRONYD126t4XXN+upwxaQI29RR4GQVSqNhyzPZPnJA0DR58EhBWqA/svb/yIhSeQ==",
       "type": "package",
-      "path": "dynamicdata/6.15.1",
+      "path": "dynamicdata/6.16.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE/LICENSE",
-        "dynamicdata.6.15.1.nupkg.sha512",
+        "dynamicdata.6.16.2.nupkg.sha512",
         "dynamicdata.nuspec",
         "lib/net461/DynamicData.dll",
         "lib/net461/DynamicData.xml",
@@ -1328,10 +1328,10 @@
         "packageIcon.png"
       ]
     },
-    "ReactiveUI/11.4.17": {
-      "sha512": "0EwX/8XinrV2XmVYVE6nZPdZ1qbBf38PLWmlMhx9adx+ji9oLsiXwOQVnq83RD19Df7ofxzblKIxJ2GewrKPmA==",
+    "ReactiveUI/11.5.17": {
+      "sha512": "i5gGNiy4DGhVrmTDPCCr9VtUpRW08B5i/1AyjZYKk+H+a+mL0+bGF7hM7w6EDksyI4CMjR2TLbB8WqmQWB7EjQ==",
       "type": "package",
-      "path": "reactiveui/11.4.17",
+      "path": "reactiveui/11.5.17",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1343,8 +1343,8 @@
         "lib/net461/ReactiveUI.xml",
         "lib/netcoreapp2.0/ReactiveUI.dll",
         "lib/netcoreapp2.0/ReactiveUI.xml",
-        "lib/netcoreapp3.0/ReactiveUI.dll",
-        "lib/netcoreapp3.0/ReactiveUI.xml",
+        "lib/netcoreapp3.1/ReactiveUI.dll",
+        "lib/netcoreapp3.1/ReactiveUI.xml",
         "lib/netstandard2.0/ReactiveUI.dll",
         "lib/netstandard2.0/ReactiveUI.xml",
         "lib/tizen40/ReactiveUI.dll",
@@ -1358,23 +1358,23 @@
         "lib/xamarinmac20/ReactiveUI.xml",
         "lib/xamarintvos10/ReactiveUI.dll",
         "lib/xamarintvos10/ReactiveUI.xml",
-        "reactiveui.11.4.17.nupkg.sha512",
+        "reactiveui.11.5.17.nupkg.sha512",
         "reactiveui.nuspec"
       ]
     },
-    "ReactiveUI.WPF/11.4.17": {
-      "sha512": "5Qt/CCLnZSFiixJlWo+bpeWsXWVIwiumdnvzI11eXbYcbLVtbPygy1rH/4FnaU4tQ8e+eS6XabizS23MpNhE0Q==",
+    "ReactiveUI.WPF/11.5.17": {
+      "sha512": "8f6sUPgf66Cs43GJQGrXacSNejyGj5/sv1rE/f0l94IqCp8NCF67jszmADWQWc+kvBfuyQRCGqDV2GFm2HWb5Q==",
       "type": "package",
-      "path": "reactiveui.wpf/11.4.17",
+      "path": "reactiveui.wpf/11.5.17",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE/LICENSE",
-        "lib/net461/ReactiveUI.WPF.dll",
-        "lib/net461/ReactiveUI.WPF.xml",
-        "lib/netcoreapp3.0/ReactiveUI.WPF.dll",
-        "lib/netcoreapp3.0/ReactiveUI.WPF.xml",
-        "reactiveui.wpf.11.4.17.nupkg.sha512",
+        "lib/net472/ReactiveUI.WPF.dll",
+        "lib/net472/ReactiveUI.WPF.xml",
+        "lib/netcoreapp3.1/ReactiveUI.WPF.dll",
+        "lib/netcoreapp3.1/ReactiveUI.WPF.xml",
+        "reactiveui.wpf.11.5.17.nupkg.sha512",
         "reactiveui.wpf.nuspec"
       ]
     },
@@ -1394,10 +1394,10 @@
         "restsharp.png"
       ]
     },
-    "Splat/9.4.5": {
-      "sha512": "KOFrxLdMQg0geu2EMSAL+H9ZgsMY4lgm0Fd71wqod7TBbEM28CutGZ+hg71/U/c/lLx2g409UoepezKHHm9jbA==",
+    "Splat/9.5.20": {
+      "sha512": "DWd6y30Lj4mWj7D8sBlxuRPUzfEY2l61DNi6B400tnkhHdyiYZek15kLLLxIbXrNGydvLS1eTk+Kxg6OLmNXEA==",
       "type": "package",
-      "path": "splat/9.4.5",
+      "path": "splat/9.5.20",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1409,7 +1409,7 @@
         "lib/uap10.0.16299/Splat.dll",
         "lib/uap10.0.16299/Splat.pri",
         "lib/uap10.0.16299/Splat.xml",
-        "splat.9.4.5.nupkg.sha512",
+        "splat.9.5.20.nupkg.sha512",
         "splat.nuspec"
       ]
     },
@@ -2225,7 +2225,8 @@
       "Microsoft.Extensions.DependencyInjection.Abstractions >= 3.1.5",
       "Microsoft.Extensions.Hosting >= 3.1.5",
       "Microsoft.Extensions.Hosting.Abstractions >= 3.1.5",
-      "ReactiveUI.WPF >= 11.4.17"
+      "ReactiveUI >= 11.5.17",
+      "ReactiveUI.WPF >= 11.5.17"
     ]
   },
   "packageFolders": {
@@ -2294,9 +2295,13 @@
             "target": "Package",
             "version": "[3.1.5, )"
           },
+          "ReactiveUI": {
+            "target": "Package",
+            "version": "[11.5.17, )"
+          },
           "ReactiveUI.WPF": {
             "target": "Package",
-            "version": "[11.4.17, )"
+            "version": "[11.5.17, )"
           }
         },
         "imports": [

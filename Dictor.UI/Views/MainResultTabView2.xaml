@@ -27,12 +27,12 @@
 
                 <Grid  TextElement.Foreground="{DynamicResource MaterialDesignBody}">
                     <TabControl TabStripPlacement="Left"  Style="{StaticResource MaterialDesignTabControl}" >
-                        <TabItem Header="Online examples" >
+                        <TabItem Header="Online examples" Visibility="{Binding Path=OnlineExamplesCount, Converter={C1:IntToVisibilityConverter}}">
 
                             <Grid HorizontalAlignment="Left">
-                                <UC:EmptyResultView Visibility="{Binding Path=.,  
+                                <!--<UC:EmptyResultView Visibility="{Binding Path=.,  
                                                                       Converter={C1:ResultEmptyOnlineExampleListToVisibilityConverter}}" Panel.ZIndex="1">
-                                </UC:EmptyResultView>
+                                </UC:EmptyResultView>-->
                                 <DockPanel Grid.Column="0" Grid.Row="0" 
                                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                                     <ListView ItemsSource="{Binding Results}"  VerticalAlignment="Stretch"
@@ -98,7 +98,7 @@
 
 
                         </TabItem>
-                        <TabItem Header="Definitions">
+                        <TabItem Header="Definitions" Visibility="{Binding Path=DefinitionsCount, Converter={C1:IntToVisibilityConverter}}">
 
                             <Grid HorizontalAlignment="Stretch">
                                 <UC:EmptyResultView Grid.Column="1" Visibility="{Binding Path=.,  

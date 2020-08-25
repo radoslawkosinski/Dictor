@@ -20,34 +20,47 @@ namespace Dictor.Lib.Model
         
         //public string Example { get; set; }
         public string ProviderName { get; set; }
-        
-        
-        
+
+        public int DefinitionsCount { get; set; }
+        public int OnlineExamplesCount { get; set; }
+
+
 
         public TranslationResult(string providerName)
         {
 
             Results = new List<Result>();
             ProviderName = providerName;
+            OnlineExamplesCount = 0;
+            DefinitionsCount = 0;
         }
 
         public TranslationResult GetEmptyTranslationResult()
         {
 
+            //this.Results = new List<Result>()
+            //    {
+            //       new Result { Definitions = new List<TranslationDefinition>() { 
+            //           new TranslationDefinition {
+            //           Definition = null,
+            //           Example = null,
+            //           Pronounciations = new List<Pronounciation>() {
+            //               new Pronounciation {
+            //                   Pron = null, Sound = null}
+            //                },
+            //                   Synonyms = new List<Synonym>(){ new Synonym { Name = null }}
+            //       }
+            //       }
+            //       }
+            //    };
+
             this.Results = new List<Result>()
                 {
-                   new Result { Definitions = new List<TranslationDefinition>() { new TranslationDefinition {
-                       Definition = null,
-                       Example = null,
-                       Pronounciations = new List<Pronounciation>() {
-                           new Pronounciation {
-                               Pron = null, Sound = null}
-                            },
-                               Synonyms = new List<Synonym>(){ new Synonym { Name = null }}
-                   }
-                   }
+                   new Result { Definitions = new List<TranslationDefinition>() 
                    }
                 };
+
+
             return this;
          }
    

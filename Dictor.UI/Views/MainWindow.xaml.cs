@@ -17,6 +17,15 @@ namespace Dictor.UI.Views
             InitializeComponent();
             ViewModel = new MainWindowViewModel();
             DataContext = ViewModel;
+            //if ever decide to have binding in codebehind, it should be like this:
+
+            //this
+            //.WhenActivated(disposables => {
+            //this
+            //.BindCommand(this.ViewModel, vm => vm.TranslateAllProvidersCommand, v => v.TestButton)
+            //.DisposeWith(disposables);
+            //});
+
         }
 
         public MainWindowViewModel ViewModel

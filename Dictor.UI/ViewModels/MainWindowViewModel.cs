@@ -26,6 +26,19 @@ namespace Dictor.UI.ViewModels
         }
 
 
+
+
+
+        //private Visibility onlineExamplesVisible;
+        //public Visibility OnlineExamplesVisible
+        //{
+        //    get { return onlineExamplesVisible; }
+        //    set
+        //    {
+        //        this.RaiseAndSetIfChanged(ref onlineExamplesVisible, value);
+        //    }
+        //}
+
         private TranslationResult _selectedProvider;
         public TranslationResult SelectedProvider
         {
@@ -42,6 +55,21 @@ namespace Dictor.UI.ViewModels
             get { return canPlay; }
             set { this.RaiseAndSetIfChanged(ref canPlay, value); }
         }
+
+        //private bool _isLoading;
+
+        //public bool IsLoading
+        //{
+        //    get { return _isLoading; }
+        //    set { this.RaiseAndSetIfChanged(ref _isLoading, value); }
+        //}
+
+
+
+
+        readonly ObservableAsPropertyHelper<bool> _isLoading;
+        public bool IsLoading { get { return _isLoading.Value; } }
+
 
         public ReactiveCommand<string, Unit> PlayAudioCommand { get; }
 
@@ -78,15 +106,40 @@ namespace Dictor.UI.ViewModels
         private readonly SourceList<TranslationResult> myList = new SourceList<TranslationResult>();
         public IObservableCollection<TranslationResult> MyListBindable { get; } = new ObservableCollectionExtended<TranslationResult>();
 
+
+        //tests: https://csharp.hotexamples.com/examples/-/ReactiveCommand/Execute/php-reactivecommand-execute-method-examples.html
+
         public MainWindowViewModel()
         {
 
+            //this.IsLoading = false;
             this.canExecute = false;
             this.canPlay = true;
+            //this.onlineExamplesVisible = NotEmptyVisibility;
+
 
             this.translationService = App.TranslationService;
 
             TranslateAllProvidersCommand = ReactiveCommand.CreateFromTask<bool>(_ => TranslateAllProviders(), this.WhenAnyValue(x => x.CanExecute));
+            TranslateAllProvidersCommand.IsExecuting.ToProperty(this, x => x.IsLoading, out _isLoading);
+
+
+            /*
+            private readonly ObservableAsPropertyHelper<bool> _isRefreshing;        
+             public bool IsRefreshing => _isRefreshing.Value;
+            
+            _isRefreshing =
+                            LoadMovies
+                                .IsExecuting
+                                .ToProperty(this, x => x.IsRefreshing, true);
+
+
+
+
+                         */
+
+            //TranslateAllProvidersCommand.IsExecuting
+            //.ToProperty(this, x => x.IsLoading);
 
             PlayAudioCommand = ReactiveCommand.CreateFromTask<string>(_ => PlaySound(_), this.WhenAnyValue(x => x.CanPlay));
 
@@ -101,24 +154,16 @@ namespace Dictor.UI.ViewModels
 
             var lst = await translationService.TranslateAllProviders(this._phrase);
             var translatedList = new ObservableCollection<TranslationResult>(lst);
-          //  MessageBox.Show("zzz");
 
             if (Translations.Count == 0)
                 Translations.AddRange(translatedList);
-            //else {
-            //    foreach (var translated in translatedList)
-            //    {
-            //        var existingTranslation = Translations
-            //            .Where(x => x.ProviderName ==  translated.ProviderName).FirstOrDefault();
-
-            //        if (existingTranslation == null)
-            //            Translations.Add(translated);
-            //        else
-            //            existingTranslation = translated;
-            //    }
-            //}
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="soundUrl"></param>
+        /// <returns></returns>
         private async Task PlaySound(string soundUrl)
         {
             //await translationService.ListenAudio(_selectedProvider.ProviderName, soundUrl);

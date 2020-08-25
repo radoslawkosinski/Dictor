@@ -1,4 +1,5 @@
-﻿using Dictor.Lib.Model;
+﻿using Dictor.Lib.Helpers;
+using Dictor.Lib.Model;
 using Dictor.Lib.Provider;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -53,21 +54,28 @@ namespace Dictor.Lib.Mocks
 
 
 
-            //always single result (this is only the list<OnlineExample>
-            translationResult.Results[0].OnlineExamples = translationResultRaw
-                .Examples.Select(
-                x => new OnlineExample()
-                {
-                    Author = x?.Author,
-                    Text = x?.Text,
-                    Title = x?.Title,
-                    Url = x?.Url,
-                    Word = x?.Word,
-                    Year = x?.Year
-                }
-                )
-                .Where(x => !string.IsNullOrEmpty(x.Title) || !string.IsNullOrEmpty(x.Text))?
-                .ToList();        
+            if (translationResultRaw != null)
+            {
+                translationResult.Results[0].OnlineExamples = translationResultRaw?
+                    .Examples.Select(
+                    x => new OnlineExample()
+                    {
+                        Author = x?.Author,
+                        Text = x?.Text,
+                        Title = x?.Title,
+                        Url = x?.Url,
+                        Word = x?.Word,
+                        Year = x?.Year
+                    }
+                    )
+                    .Where(x => !string.IsNullOrEmpty(x.Title) || !string.IsNullOrEmpty(x.Text))?
+                    .ToList();
+            }
+            else
+                translationResult = translationResult.GetEmptyTranslationResult();
+
+            ProviderHelper.CountResults(translationResult);
+
             return translationResult;
         }
 

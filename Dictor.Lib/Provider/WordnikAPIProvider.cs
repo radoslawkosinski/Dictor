@@ -1,4 +1,5 @@
-﻿using Dictor.Lib.Model;
+﻿using Dictor.Lib.Helpers;
+using Dictor.Lib.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
@@ -31,8 +32,7 @@ namespace Dictor.Lib.Provider
 
 
         /// <summary>
-        /// Use wordnik for example sentences only, the translation provided by wordnik doesn't seem to be good quality (missing many things)
-        /// but the sample usage looks quite OK for our purposes
+        /// Use wordnik to show online sample usages only, the translation provided by wordnik doesn't seem to be good quality (missing many things)
         /// </summary>
         /// <param name="phrase"></param>
         /// <returns></returns>
@@ -125,6 +125,8 @@ namespace Dictor.Lib.Provider
             else
                 translationResult = translationResult.GetEmptyTranslationResult();
 
+            ProviderHelper.CountResults(translationResult);
+
             return translationResult;
         }
 
@@ -133,6 +135,10 @@ namespace Dictor.Lib.Provider
             throw new NotImplementedException();
         }
 
+        //private void CountResults(TranslationResult result)
+        //{
+        //    result.OnlineExamplesCount = result.Results.Where(x => x.OnlineExamples.Count() > 0).Count();
+        //}
 
         /// <summary>
         /// Load list of languages available for translation on this provider
@@ -145,5 +151,8 @@ namespace Dictor.Lib.Provider
                 //Languages.Pl
             };
         }
+
+
+
     }
 }

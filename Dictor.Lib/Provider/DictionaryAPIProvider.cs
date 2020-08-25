@@ -1,4 +1,5 @@
-﻿using Dictor.Lib.Model;
+﻿using Dictor.Lib.Helpers;
+using Dictor.Lib.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
@@ -17,6 +18,7 @@ namespace Dictor.Lib.Provider
         private List<DictionaryAPIResponseRaw> translationResultRaw;
 
         public string ProviderName { get => "DictionaryAPI";  }
+  
 
         public List<Language> AvailableLanguages; //if empty then multiple languages not supported
 
@@ -41,6 +43,8 @@ namespace Dictor.Lib.Provider
             Language targetLang = Languages.SelectedTranslation.TargetLang;
 
 
+
+            translationResultRaw = null;
             //bool supportMultiLang = !AvailableLanguages.Any();
             //check if passed source lang(static) is in the supported lang list, if not, choose default pair from the list (first and second in the list)
             //or skip that part if there are no support for multiple languages
@@ -74,16 +78,20 @@ namespace Dictor.Lib.Provider
 
 
                 var content = JsonConvert.DeserializeObject<JToken>(response.Content);
-                if (response.StatusCode == HttpStatusCode.OK)
-                {
-                    //DictionaryAPIResponseRaw ra = new DictionaryAPIResponseRaw();
-                    //translationResultRaw = new List<DictionaryAPIResponseRaw>();
-                    translationResultRaw = content.ToObject<List<DictionaryAPIResponseRaw>>();
 
-                }
- 
+            translationResultRaw = response.StatusCode == HttpStatusCode.OK ? content.ToObject<List<DictionaryAPIResponseRaw>>() : null;
 
 
+            //if (response.StatusCode == HttpStatusCode.OK)
+            //    {
+            //        //DictionaryAPIResponseRaw ra = new DictionaryAPIResponseRaw();
+            //        //translationResultRaw = new List<DictionaryAPIResponseRaw>();
+            //        translationResultRaw = content.ToObject<List<DictionaryAPIResponseRaw>>();
+
+            //    }
+
+
+            
 
             //CONVERT TO FINAL RESPONSE
             return mapResponse();
@@ -104,6 +112,8 @@ namespace Dictor.Lib.Provider
 
             var res = new List<Result>();
 
+            if (translationResultRaw != null)
+            { 
             if (adj != null)
             {
                 res = adj
@@ -135,11 +145,23 @@ namespace Dictor.Lib.Provider
                         }
                     })?.ToList();
             }
+                translationResult.Results = res;
+            }
+            else
+                translationResult = translationResult.GetEmptyTranslationResult();
 
-            translationResult.Results = res;
+            
+
+            ProviderHelper.CountResults(translationResult);
 
             return translationResult;
         }
+
+
+        //private void CountResults(TranslationResult result)
+        //{
+        //    result.OnlineExamplesCount = result.Results.Where(x => x.OnlineExamples.Count() > 0).Count();
+        //}
 
         /// <summary>
         /// Load list of languages available for translation on this provider

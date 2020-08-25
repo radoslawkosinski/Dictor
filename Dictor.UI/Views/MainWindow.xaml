@@ -6,6 +6,8 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:mde="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions"
         xmlns:UC="clr-namespace:Dictor.UI.Views"
+        xmlns:C1="clr-namespace:Dictor.UI.Converter"
+        
         mc:Ignorable="d"
         Title="Word reader" Height="850" Width="1000">
     <Grid Height="850">
@@ -21,10 +23,18 @@
             <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}" Width="30" Height="30"
              HorizontalAlignment="Right"
              ToolTip="Search" Command="{Binding TranslateAllProvidersCommand}">
-                <materialDesign:PackIcon Kind="Search" Height="20" Width="20" />
+                <materialDesign:PackIcon Kind="Search" Height="20" Width="20"
+                  Visibility="{Binding Path=IsLoading, Converter={C1:BoolToVisibilityConverter}}"                     
+                                         />
+               
             </Button>
-
+            <!--<CheckBox Content="LADUJE SIE" IsChecked="{Binding IsLoading, Mode=OneWay}"></CheckBox>-->
             <!--<Button Margin="2" materialDesign:HintAssist.HelperText="blabla" FontSize="12" Content="Search" Height="30" Width="70"  ></Button>-->
+            <!--ponizej dziala zajebiscie-->
+            <ProgressBar Visibility="{Binding Path=IsLoading, Converter={C1:BoolToVisibilityConverter}}"
+  Style="{StaticResource MaterialDesignCircularProgressBar}"
+  Value="0"
+  IsIndeterminate="True" />
         </StackPanel>
 
         <DockPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Panel.ZIndex="1">

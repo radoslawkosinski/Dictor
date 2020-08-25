@@ -1,4 +1,5 @@
-﻿using Dictor.Lib.Model;
+﻿using Dictor.Lib.Helpers;
+using Dictor.Lib.Model;
 using Dictor.Lib.Provider;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -55,36 +56,39 @@ namespace Dictor.Lib.Mocks
 
         private TranslationResult mapResponse()
         {
+
             TranslationResult translationResult = new TranslationResult(this.ProviderName);
 
-
-            translationResult.Results = translationResultRaw
-            .Select(x => new Result()
+            if (translationResultRaw != null)
             {
-            Word = null, //to be removed
-            ShortTranslation = null, //to be removed
+                translationResult.Results = translationResultRaw?
+                .Select(x => new Result()
+                {
+                    Word = null, //to be removed
+                    ShortTranslation = null, //to be removed
 
 
-                Definitions =
-                            { new TranslationDefinition {
+                    Definitions =
+                                { new TranslationDefinition {
                                 Definition = x.hwi.Word,
                                 Example = x.ShortTranslation.FirstOrDefault(),
                                 Pronounciations =
                                     { new Pronounciation { Sound = x.hwi.prs
                                          .Where
-                                         (x => !string.IsNullOrEmpty(x.sound.Audio))
-                                         .FirstOrDefault()?.sound ?? x.hwi.prs.FirstOrDefault().sound //this was prepopulated in constructor so either first not empty element or just first one (it could be either populated or not)
+                                         (x => !string.IsNullOrEmpty(x.sound?.Audio))
+                                         .FirstOrDefault()?.sound ?? x.hwi?.prs?.FirstOrDefault().sound //this was prepopulated in constructor so either first not empty element or just first one (it could be either populated or not)
                                          ,Pron = x.hwi.prs
                                          .Where (x => !string.IsNullOrEmpty(x.ipa)).FirstOrDefault()?.ipa
                                     } }
 
-                         } 
-                    }
+                         }
+                        }
                 })
-                .ToList();
+                    .ToList();
+            }
+            else translationResult = translationResult.GetEmptyTranslationResult();
 
-
-
+            ProviderHelper.CountResults(translationResult);
 
             return translationResult;
         }

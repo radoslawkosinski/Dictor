@@ -1,4 +1,5 @@
-﻿using Dictor.Lib.Model;
+﻿using Dictor.Lib.Helpers;
+using Dictor.Lib.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
@@ -17,6 +18,7 @@ namespace Dictor.Lib.Provider
         private List<MWTranslationRaw> translationResultRaw;
 
         public string ProviderName { get => "M-W";  }
+
 
         public List<Language> AvailableLanguages; //if empty then multiple languages not supported
 
@@ -123,10 +125,13 @@ namespace Dictor.Lib.Provider
             }
             else translationResult = translationResult.GetEmptyTranslationResult();
 
-
+            ProviderHelper.CountResults(translationResult);
 
             return translationResult;
         }
+
+
+
 
         /// <summary>
         /// Load list of languages available for translation on this provider

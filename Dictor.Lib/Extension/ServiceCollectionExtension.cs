@@ -1,4 +1,5 @@
-﻿using Dictor.Lib.Mocks;
+﻿using Dictor.Lib.Helpers;
+using Dictor.Lib.Mocks;
 using Dictor.Lib.Model;
 using Dictor.Lib.Provider;
 using Dictor.Lib.Repository;
@@ -33,6 +34,8 @@ namespace Dictor.Lib
             collection.AddTransient<ITranslationService, TranslationService>();
 
             collection.AddSingleton<TranslationProviders, TranslationProviders>();
+
+            
 
             return collection;
 

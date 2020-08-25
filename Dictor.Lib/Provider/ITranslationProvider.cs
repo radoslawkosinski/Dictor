@@ -10,5 +10,6 @@ namespace Dictor.Lib.Provider
         public string ProviderName { get;  }
 
         public Task ListenAudio(string phrase);
+
     }
 }
