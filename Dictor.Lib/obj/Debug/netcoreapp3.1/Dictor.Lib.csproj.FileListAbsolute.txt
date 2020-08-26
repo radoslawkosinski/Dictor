@@ -7,7 +7,6 @@ D:\prj\SLOWNIK\Dictor\Dictor.Lib\obj\Debug\netcoreapp3.1\Dictor.Lib.AssemblyInfo
 D:\prj\SLOWNIK\Dictor\Dictor.Lib\obj\Debug\netcoreapp3.1\Dictor.Lib.AssemblyInfo.cs
 D:\prj\SLOWNIK\Dictor\Dictor.Lib\obj\Debug\netcoreapp3.1\Dictor.Lib.dll
 D:\prj\SLOWNIK\Dictor\Dictor.Lib\obj\Debug\netcoreapp3.1\Dictor.Lib.pdb
-D:\prj\SLOWNIK\Dictor\Dictor.Lib\obj\Debug\netcoreapp3.1\Dictor.Lib.csprojAssemblyReference.cache
 C:\rk\prj\SLOWNIK\Dictor\Dictor.Lib\bin\Debug\netcoreapp3.1\appsettings.dev.json
 C:\rk\prj\SLOWNIK\Dictor\Dictor.Lib\bin\Debug\netcoreapp3.1\Dictor.Lib.deps.json
 C:\rk\prj\SLOWNIK\Dictor\Dictor.Lib\bin\Debug\netcoreapp3.1\Dictor.Lib.dll

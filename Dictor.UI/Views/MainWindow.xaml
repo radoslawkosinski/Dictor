@@ -10,6 +10,8 @@
         
         mc:Ignorable="d"
         Title="Word reader" Height="850" Width="1000">
+
+
     <Grid Height="850">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1000"></ColumnDefinition>
@@ -18,27 +20,24 @@
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" Height="40" Width="270" FocusManager.FocusedElement="{Binding ElementName=edtSearch}">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" Height="40" Width="270" 
+                    FocusManager.FocusedElement="{Binding ElementName=edtSearch}">
             <TextBox x:Name="edtSearch" Margin="5" Text="{Binding Phrase, UpdateSourceTrigger=PropertyChanged}"  Height="25" Width="180" ></TextBox>
+             <ProgressBar Visibility="{Binding Path=IsLoading, Converter={C1:BoolToVisibilityConverter}}"
+              Style="{StaticResource MaterialDesignCircularProgressBar}"
+              Value="0"
+              IsIndeterminate="True" />
             <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}" Width="30" Height="30"
              HorizontalAlignment="Right"
              ToolTip="Search" Command="{Binding TranslateAllProvidersCommand}">
-                <materialDesign:PackIcon Kind="Search" Height="20" Width="20"
-                  Visibility="{Binding Path=IsLoading, Converter={C1:BoolToVisibilityConverter}}"                     
-                                         />
+                <materialDesign:PackIcon Kind="Search" Height="20" Width="20"/>
                
             </Button>
-            <!--<CheckBox Content="LADUJE SIE" IsChecked="{Binding IsLoading, Mode=OneWay}"></CheckBox>-->
-            <!--<Button Margin="2" materialDesign:HintAssist.HelperText="blabla" FontSize="12" Content="Search" Height="30" Width="70"  ></Button>-->
-            <!--ponizej dziala zajebiscie-->
-            <ProgressBar Visibility="{Binding Path=IsLoading, Converter={C1:BoolToVisibilityConverter}}"
-  Style="{StaticResource MaterialDesignCircularProgressBar}"
-  Value="0"
-  IsIndeterminate="True" />
+
         </StackPanel>
 
         <DockPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Panel.ZIndex="1">
-            <UC:MainResultTabView2 ></UC:MainResultTabView2>
+            <UC:MainResultTabView ></UC:MainResultTabView>
         </DockPanel>
 
     </Grid>

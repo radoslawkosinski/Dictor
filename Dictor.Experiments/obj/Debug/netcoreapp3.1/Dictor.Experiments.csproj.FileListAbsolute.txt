@@ -82,3 +82,4 @@ C:\rk\prj\SLOWNIK\Dictor\Dictor.Experiments\obj\Debug\netcoreapp3.1\Dictor.Exper
 C:\rk\prj\SLOWNIK\Dictor\Dictor.Experiments\obj\Debug\netcoreapp3.1\Dictor.Experiments.dll
 C:\rk\prj\SLOWNIK\Dictor\Dictor.Experiments\obj\Debug\netcoreapp3.1\Dictor.Experiments.pdb
 C:\rk\prj\SLOWNIK\Dictor\Dictor.Experiments\obj\Debug\netcoreapp3.1\Dictor.Experiments.genruntimeconfig.cache
+D:\prj\SLOWNIK\Dictor\Dictor.Experiments\obj\Debug\netcoreapp3.1\Dictor.Experiments.csprojAssemblyReference.cache

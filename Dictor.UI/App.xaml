@@ -37,6 +37,12 @@
                     <SolidColorBrush x:Key="SecondaryAccentForegroundBrush" Color="{StaticResource Accent400Foreground}" />
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
+
+                <ContextMenu x:Key="ResultContextMenu" Background="White">
+                    <MenuItem Command="ApplicationCommands.Copy" />
+                    <MenuItem Command="ApplicationCommands.Cut" />
+                    <MenuItem Command="ApplicationCommands.Paste" />
+                </ContextMenu>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

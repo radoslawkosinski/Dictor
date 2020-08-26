@@ -1,5 +1,4 @@
 D:\prj\SLOWNIK\Dictor\Dictor.UI\obj\Debug\netcoreapp3.1\Views\EmptyResultView.g.cs
-D:\prj\SLOWNIK\Dictor\Dictor.UI\obj\Debug\netcoreapp3.1\Views\MainResultTabView2.g.cs
 D:\prj\SLOWNIK\Dictor\Dictor.UI\obj\Debug\netcoreapp3.1\Views\MainWindow.g.cs
 D:\prj\SLOWNIK\Dictor\Dictor.UI\obj\Debug\netcoreapp3.1\App.g.cs
 D:\prj\SLOWNIK\Dictor\Dictor.UI\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
@@ -64,7 +63,6 @@ D:\prj\SLOWNIK\Dictor\Dictor.UI\bin\Debug\netcoreapp3.1\Dictor.Lib.pdb
 D:\prj\SLOWNIK\Dictor\Dictor.UI\bin\Debug\netcoreapp3.1\System.Reactive.xml
 D:\prj\SLOWNIK\Dictor\Dictor.UI\obj\Debug\netcoreapp3.1\App.baml
 D:\prj\SLOWNIK\Dictor\Dictor.UI\obj\Debug\netcoreapp3.1\Views\EmptyResultView.baml
-D:\prj\SLOWNIK\Dictor\Dictor.UI\obj\Debug\netcoreapp3.1\Views\MainResultTabView2.baml
 D:\prj\SLOWNIK\Dictor\Dictor.UI\obj\Debug\netcoreapp3.1\Views\MainWindow.baml
 D:\prj\SLOWNIK\Dictor\Dictor.UI\obj\Debug\netcoreapp3.1\Dictor.UI.g.resources
 D:\prj\SLOWNIK\Dictor\Dictor.UI\obj\Debug\netcoreapp3.1\Dictor.UI.csproj.CoreCompileInputs.cache
@@ -150,3 +148,5 @@ C:\rk\prj\SLOWNIK\Dictor\Dictor.UI\obj\Debug\netcoreapp3.1\Dictor.UI.csproj.Copy
 C:\rk\prj\SLOWNIK\Dictor\Dictor.UI\obj\Debug\netcoreapp3.1\Dictor.UI.dll
 C:\rk\prj\SLOWNIK\Dictor\Dictor.UI\obj\Debug\netcoreapp3.1\Dictor.UI.pdb
 C:\rk\prj\SLOWNIK\Dictor\Dictor.UI\obj\Debug\netcoreapp3.1\Dictor.UI.genruntimeconfig.cache
+D:\prj\SLOWNIK\Dictor\Dictor.UI\obj\Debug\netcoreapp3.1\Views\MainResultTabView.g.cs
+D:\prj\SLOWNIK\Dictor\Dictor.UI\obj\Debug\netcoreapp3.1\Views\MainResultTabView.baml

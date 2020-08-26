@@ -17,9 +17,9 @@ namespace Dictor.UI.Views
     /// <summary>
     /// Interaction logic for MainResultTabView2.xaml
     /// </summary>
-    public partial class MainResultTabView2 : UserControl
+    public partial class MainResultTabView : UserControl
     {
-        public MainResultTabView2()
+        public MainResultTabView()
         {
             //this.DataContext = MainWindowViewModel;
             InitializeComponent();

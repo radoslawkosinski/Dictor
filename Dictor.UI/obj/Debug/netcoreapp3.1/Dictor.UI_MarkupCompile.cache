@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 D:\prj\SLOWNIK\Dictor\Dictor.UI\App.xaml
-3671573155
+3-1484759193
 
-11-90058290
+111560197725
 235931893312
-Views\EmptyResultView.xaml;Views\MainResultTabView2.xaml;Views\MainWindow.xaml;
+Views\EmptyResultView.xaml;Views\MainResultTabView.xaml;Views\MainWindow.xaml;
 
 False
 
